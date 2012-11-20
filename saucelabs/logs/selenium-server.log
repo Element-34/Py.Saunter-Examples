@@ -1,0 +1,108 @@
+Nov 20, 2012 7:26:28 AM org.openqa.grid.selenium.GridLauncher main
+INFO: Launching a standalone server
+07:26:28.781 INFO - Writing debug logs to c:\log\selenium-server-interactive.log
+07:26:28.781 INFO - Java: Sun Microsystems Inc. 20.10-b01
+07:26:28.781 INFO - OS: Windows 2003 5.2 x86
+07:26:28.796 INFO - v2.18.0, with Core v2.18.0. Built from revision 15704
+07:26:29.000 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4443/wd/hub
+07:26:29.000 INFO - Version Jetty/5.1.x
+07:26:29.000 INFO - Started HttpContext[/selenium-server/driver,/selenium-server/driver]
+07:26:29.000 INFO - Started HttpContext[/selenium-server,/selenium-server]
+07:26:29.000 INFO - Started HttpContext[/,/]
+07:26:29.062 INFO - Started org.openqa.jetty.jetty.servlet.ServletHandler@1a5f739
+07:26:29.062 INFO - Started HttpContext[/wd,/wd]
+07:26:29.078 INFO - Started SocketListener on 0.0.0.0:4443
+07:26:29.078 INFO - Started org.openqa.jetty.jetty.Server@1e0ff2f
+07:26:30.343 INFO - Checking Resource aliases
+07:26:30.343 INFO - Command request: getNewBrowserSession[*firefox, https://saucelabs.com/, ] on session null
+07:26:30.359 INFO - creating new remote session
+07:26:30.390 INFO - Allocated session beea54398432494184e887c4dba90440 for https://saucelabs.com/, launching...
+07:26:30.484 INFO - Preparing Firefox profile...
+07:26:32.812 INFO - Launching Firefox...
+07:26:35.421 INFO - Got result: OK,beea54398432494184e887c4dba90440 on session beea54398432494184e887c4dba90440
+07:26:35.437 INFO - Command request: windowMaximize[, ] on session beea54398432494184e887c4dba90440
+07:26:35.500 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:35.531 INFO - Command request: deleteAllVisibleCookies[, ] on session beea54398432494184e887c4dba90440
+07:26:35.562 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:35.578 INFO - Command request: getEval[selenium.sessionId = "3db00993ae8f44f4b97bdc3cff042c3e", ] on session beea54398432494184e887c4dba90440
+07:26:35.609 INFO - Got result: OK,3db00993ae8f44f4b97bdc3cff042c3e on session beea54398432494184e887c4dba90440
+07:26:35.625 INFO - Command request: setTimeout[90000, ] on session beea54398432494184e887c4dba90440
+07:26:35.625 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:35.656 INFO - Command request: getAllWindowNames[, ] on session beea54398432494184e887c4dba90440
+07:26:35.656 INFO - Got result: OK,selenium_main_app_window on session beea54398432494184e887c4dba90440
+07:26:36.078 INFO - Command request: getEval[selenium.sessionId, ] on session beea54398432494184e887c4dba90440
+07:26:36.078 INFO - Got result: OK,3db00993ae8f44f4b97bdc3cff042c3e on session beea54398432494184e887c4dba90440
+07:26:36.125 INFO - Command request: captureScreenshot[c:\job_assets\shot_0.png, ] on session beea54398432494184e887c4dba90440
+07:26:36.125 INFO - Creating Robot
+07:26:36.468 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:37.000 INFO - Command request: windowMaximize[, ] on session beea54398432494184e887c4dba90440
+07:26:37.031 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:37.343 INFO - Command request: setTimeout[20000, ] on session beea54398432494184e887c4dba90440
+07:26:37.359 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:37.671 INFO - Command request: open[https://saucelabs.com/, True] on session beea54398432494184e887c4dba90440
+07:26:38.468 INFO - Started SocketListener on 0.0.0.0:1092
+07:26:38.812 INFO - Started SocketListener on 0.0.0.0:1100
+07:26:42.312 INFO - Started SocketListener on 0.0.0.0:1129
+07:26:42.671 INFO - Started SocketListener on 0.0.0.0:1132
+07:26:42.921 INFO - Started SocketListener on 0.0.0.0:1135
+07:26:43.843 INFO - Started SocketListener on 0.0.0.0:1140
+07:26:44.421 INFO - Started SocketListener on 0.0.0.0:1147
+07:26:44.781 INFO - Started SocketListener on 0.0.0.0:1151
+07:26:45.109 INFO - Started SocketListener on 0.0.0.0:1154
+07:26:45.468 INFO - Started SocketListener on 0.0.0.0:1158
+07:26:45.500 WARN - Invalid length: Content-Length=11178522 written=139010 for https://saucelabs.com/downloads/introvideo.ogv
+07:26:45.531 WARN - Invalid length: Content-Length=11149651 written=81666 for https://saucelabs.com/downloads/beachmint.ogv
+07:26:46.187 WARN - Invalid length: Content-Length=11117082 written=40702 for https://saucelabs.com/downloads/introvideo.ogv
+07:26:46.578 INFO - Started SocketListener on 0.0.0.0:1171
+07:26:46.937 INFO - Started SocketListener on 0.0.0.0:1174
+07:26:47.187 INFO - Started SocketListener on 0.0.0.0:1177
+07:26:47.437 INFO - Started SocketListener on 0.0.0.0:1182
+07:26:47.968 WARN - Invalid length: Content-Length=11141459 written=89855 for https://saucelabs.com/downloads/beachmint.ogv
+07:26:47.984 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:48.000 INFO - Command request: captureScreenshot[c:\job_assets\shot_1.png, ] on session beea54398432494184e887c4dba90440
+07:26:48.328 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:48.656 INFO - Command request: open[/, True] on session beea54398432494184e887c4dba90440
+07:26:54.281 WARN - Invalid length: Content-Length=11178522 written=24322 for https://saucelabs.com/downloads/introvideo.ogv
+07:26:54.296 WARN - Invalid length: Content-Length=11149651 written=24322 for https://saucelabs.com/downloads/beachmint.ogv
+07:26:55.062 WARN - Invalid length: Content-Length=11141459 written=106239 for https://saucelabs.com/downloads/beachmint.ogv
+07:26:55.625 WARN - Invalid length: Content-Length=11170330 written=89855 for https://saucelabs.com/downloads/introvideo.ogv
+07:26:56.765 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:56.781 INFO - Command request: captureScreenshot[c:\job_assets\shot_2.png, ] on session beea54398432494184e887c4dba90440
+07:26:57.109 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:57.578 INFO - Command request: focus[xpath=(//a[text()="Login"])[1], ] on session beea54398432494184e887c4dba90440
+07:26:57.671 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:58.000 INFO - Command request: click[xpath=(//a[text()="Login"])[1], ] on session beea54398432494184e887c4dba90440
+07:26:58.015 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:58.046 INFO - Command request: captureScreenshot[c:\job_assets\shot_3.png, ] on session beea54398432494184e887c4dba90440
+07:26:58.406 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:26:58.812 INFO - Command request: waitForPageToLoad[20000, ] on session beea54398432494184e887c4dba90440
+07:27:00.687 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:00.703 INFO - Command request: captureScreenshot[c:\job_assets\shot_4.png, ] on session beea54398432494184e887c4dba90440
+07:27:00.906 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:01.265 INFO - Command request: focus[username, ] on session beea54398432494184e887c4dba90440
+07:27:01.296 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:01.609 INFO - Command request: type[username, foo] on session beea54398432494184e887c4dba90440
+07:27:01.640 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:01.656 INFO - Command request: captureScreenshot[c:\job_assets\shot_5.png, ] on session beea54398432494184e887c4dba90440
+07:27:01.890 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:02.484 INFO - Command request: focus[password, ] on session beea54398432494184e887c4dba90440
+07:27:02.515 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:02.828 INFO - Command request: type[password, bar] on session beea54398432494184e887c4dba90440
+07:27:02.859 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:02.875 INFO - Command request: captureScreenshot[c:\job_assets\shot_6.png, ] on session beea54398432494184e887c4dba90440
+07:27:03.125 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:03.453 INFO - Command request: focus[submit, ] on session beea54398432494184e887c4dba90440
+07:27:03.468 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:03.781 INFO - Command request: click[submit, ] on session beea54398432494184e887c4dba90440
+07:27:03.812 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:03.843 INFO - Command request: captureScreenshot[c:\job_assets\shot_7.png, ] on session beea54398432494184e887c4dba90440
+07:27:04.062 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:04.625 INFO - Command request: waitForPageToLoad[20000, ] on session beea54398432494184e887c4dba90440
+07:27:05.093 INFO - Started SocketListener on 0.0.0.0:1246
+07:27:06.859 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:06.875 INFO - Command request: captureScreenshot[c:\job_assets\shot_8.png, ] on session beea54398432494184e887c4dba90440
+07:27:07.078 INFO - Got result: OK on session beea54398432494184e887c4dba90440
+07:27:07.734 INFO - Command request: getText[css=div.error p:nth(0), ] on session beea54398432494184e887c4dba90440
+07:27:07.937 INFO - Got result: OK,Incorrect username or password. on session beea54398432494184e887c4dba90440
+07:27:08.375 INFO - Command request: captureScreenshot[c:\job_assets\shot_9.png, ] on session beea54398432494184e887c4dba90440
+07:27:08.640 INFO - Got result: OK on session beea54398432494184e887c4dba90440

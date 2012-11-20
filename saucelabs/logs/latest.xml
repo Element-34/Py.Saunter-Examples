@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="" skips="0" tests="1" time="22.345"><testcase classname="scripts.LoginExample.CheckLoginExample" name="test_incorrect_login_from_sqlite3" time="0"/></testsuite>
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="" skips="0" tests="1" time="62.053"><testcase classname="scripts.LoginExample.CheckLoginExample" name="test_incorrect_login_fails" time="19.6562759876"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/saucelabs/scripts/LoginExample.py&quot;, line 93, in test_incorrect_login_fails
+    self.assertEqual(l.error_message, &quot;This message is deliberately incorrect to trigger a failed test.&quot;)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/unittest2-0.5.1-py2.7.egg/unittest2/case.py&quot;, line 521, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/unittest2-0.5.1-py2.7.egg/unittest2/case.py&quot;, line 514, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: &apos;Incorrect username or password.&apos; != &apos;This message is deliberately incorrect to trigger a failed test.&apos;</failure></testcase></testsuite>
