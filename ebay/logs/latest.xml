@@ -1,1 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="" skips="0" tests="1" time="7.722"><testcase classname="scripts.DressShirts.EbayExample" name="test_blacklist" time="4.8176381588"/></testsuite>
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="6" name="" skips="0" tests="7" time="48.398"><testcase classname="scripts.DressShirts.TestEbayExample" name="test_meta" time="4.83796191216"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/ebay/scripts/DressShirts.py&quot;, line 40, in test_meta
+    assert(keywords.get_attribute(&quot;Content&quot;) == &quot;Dress Shirts&quot;)
+AssertionError: assert u&apos;ralph laure... Dress Shirts&apos; == &apos;Dress Shirts&apos;
+  - ralph lauren , brooks brothers , hugo boss , shirt , polo ralph lauren , , Dress Shirts
+  + Dress Shirts</failure></testcase><testcase classname="scripts.DressShirts.TestEbayExample" name="test_blacklist" time="0.000601053237915"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/ebay/scripts/DressShirts.py&quot;, line 47, in test_blacklist
+    self.client.blacklist(&quot;http://www\\.ebay\\.com/.*&quot;, 306)
+AttributeError: &apos;TestEbayExample&apos; object has no attribute &apos;client&apos;</failure></testcase><testcase classname="scripts.DressShirts.TestEbayExample" name="test_har_retrieval" time="3.63641691208"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/ebay/scripts/DressShirts.py&quot;, line 78, in test_har_retrieval
+    assert(s.result_count_class == &apos;rsltCnt&apos;)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/py.saunter-0.53-py2.7.egg/saunter/po/webdriver/attribute.py&quot;, line 35, in __get__
+    e = obj.driver.find_element_by_locator(self.locator)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/py.saunter-0.53-py2.7.egg/saunter/SaunterWebDriver.py&quot;, line 32, in find_element_by_locator
+    return WebElement(self.find_element_by_id(locator_value))
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webdriver.py&quot;, line 190, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webdriver.py&quot;, line 672, in find_element
+    {&apos;using&apos;: by, &apos;value&apos;: value})[&apos;value&apos;]
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webdriver.py&quot;, line 157, in execute
+    self.error_handler.check_response(response)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/errorhandler.py&quot;, line 149, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: u&apos;Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;v4-p308&quot;}\nCommand duration or timeout: 539 milliseconds\nFor documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \&apos;2.26.0\&apos;, revision: \&apos;18041\&apos;, time: \&apos;2012-11-01 19:33:38\&apos;\nSystem info: os.name: \&apos;Mac OS X\&apos;, os.arch: \&apos;x86_64\&apos;, os.version: \&apos;10.8.2\&apos;, java.version: \&apos;1.6.0_35\&apos;\nDriver info: driver.version: EventFiringWebDriver\nSession ID: 800ae211-394f-5c4f-9a7a-13bdd3fc0b64&apos; ; Screenshot: available via screen ; Stacktrace: Method newInstance0 threw an error in NativeConstructorAccessorImpl.java</failure></testcase><testcase classname="scripts.SearchCategories.CheckSearchCategories" name="test_single_get" time="4.0279378891"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/ebay/scripts/SearchCategories.py&quot;, line 26, in test_single_get
+    assert(s.current_search_category.selected == &quot;Clothing, Shoes &amp; Accessories&quot;)
+AssertionError: assert &apos;&apos; == &apos;Clothing, Shoes &amp; Accessories&apos;
+  + Clothing, Shoes &amp; Accessories</failure></testcase><testcase classname="scripts.SearchCategories.CheckSearchCategories" name="test_single_set_by_value" time="4.70423007011"/><testcase classname="scripts.SearchCategories.CheckSearchCategories" name="test_single_set_by_index" time="5.75946092606"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/ebay/scripts/SearchCategories.py&quot;, line 40, in test_single_set_by_index
+    s.current_search_category.selected = &quot;index=2&quot; # indexed from 1
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/py.saunter-0.53-py2.7.egg/saunter/po/webdriver/select.py&quot;, line 74, in selected
+    s.select_by_index(value)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/support/select.py&quot;, line 95, in select_by_index
+    self._setSelected(opt)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/support/select.py&quot;, line 194, in _setSelected
+    option.click()
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webelement.py&quot;, line 52, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webelement.py&quot;, line 223, in _execute
+    return self._parent.execute(command, params)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webdriver.py&quot;, line 157, in execute
+    self.error_handler.check_response(response)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/errorhandler.py&quot;, line 149, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementNotVisibleException: Message: u&quot;Element is not currently visible and so may not be interacted with\nCommand duration or timeout: 35 milliseconds\nBuild info: version: &apos;2.26.0&apos;, revision: &apos;18041&apos;, time: &apos;2012-11-01 19:33:38&apos;\nSystem info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.2&apos;, java.version: &apos;1.6.0_35&apos;\nDriver info: driver.version: RemoteWebDriver\nSession ID: ff84de0f-3155-2141-b221-7ea52025b2e2&quot; ; Screenshot: available via screen ; Stacktrace: Method newInstance0 threw an error in NativeConstructorAccessorImpl.java</failure></testcase><testcase classname="scripts.SearchCategories.CheckSearchCategories" name="test_single_set_by_text" time="4.0507349968"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/ebay/scripts/SearchCategories.py&quot;, line 47, in test_single_set_by_text
+    s.current_search_category.selected = &quot;text=Art&quot;
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/py.saunter-0.53-py2.7.egg/saunter/po/webdriver/select.py&quot;, line 76, in selected
+    s.select_by_visible_text(value)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/support/select.py&quot;, line 115, in select_by_visible_text
+    self._setSelected(opt)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/support/select.py&quot;, line 194, in _setSelected
+    option.click()
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webelement.py&quot;, line 52, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webelement.py&quot;, line 223, in _execute
+    return self._parent.execute(command, params)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/webdriver.py&quot;, line 157, in execute
+    self.error_handler.check_response(response)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium-2.26.0-py2.7.egg/selenium/webdriver/remote/errorhandler.py&quot;, line 149, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementNotVisibleException: Message: u&quot;Element is not currently visible and so may not be interacted with\nCommand duration or timeout: 12 milliseconds\nBuild info: version: &apos;2.26.0&apos;, revision: &apos;18041&apos;, time: &apos;2012-11-01 19:33:38&apos;\nSystem info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.2&apos;, java.version: &apos;1.6.0_35&apos;\nDriver info: driver.version: RemoteWebDriver\nSession ID: 316a2922-4d90-a742-ab74-e028db5b91d7&quot; ; Screenshot: available via screen ; Stacktrace: Method newInstance0 threw an error in NativeConstructorAccessorImpl.java</failure></testcase></testsuite>

@@ -13,20 +13,32 @@
 # limitations under the License.
 
 from tailored.page import Page
+
 from saunter.po.webdriver.text import Text
+from saunter.po.webdriver.select import Select2
 from saunter.po import string_timeout, timeout_seconds
 from saunter.exceptions import ElementVisiblityTimeout
-import time
 from saunter.ConfigWrapper import ConfigWrapper as cfg_wrapper
+from saunter.po.webdriver.attribute import Attribute
 
 locators = {
     "collar style": 'css=a[title="REPLACE"] > div:first-child',
+    "current search category": 'id=gh-cat',
+    "result count": 'id=v4-p308',
 }
 
+class CurrentSearchCategory(Select2):
+    def __init__(self, driver):
+        self.locator = locators["current search category"]
+        self.driver = driver
+
 class ShirtPage(Page):
+    result_count_class = Attribute(locators["result count"], "class")
+    
     def __init__(self, driver):
         self.driver = driver
         self.config = cfg_wrapper().config
+        self.current_search_category = CurrentSearchCategory(self.driver)
         
     def go_to_mens_dress_shirts(self):
         self.driver.get("%s/mens-clothing/Dress-Shirts/57991" % self.config.get("Selenium", "base_url"))

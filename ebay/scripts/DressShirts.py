@@ -20,8 +20,9 @@ import pytest
 import StringIO
 import saunter.web_element
 
-class EbayExample(SaunterTestCase):    
-    @pytest.marks('shallow', 'ebay', 'shirts')
+class TestEbayExample(SaunterTestCase):    
+    # @pytest.marks('shallow', 'ebay', 'shirts')
+    @pytest.mark.shirts
     def test_collar_style(self):
         s = ShirtPage(self.driver)
         s.go_to_mens_dress_shirts()
@@ -43,8 +44,8 @@ class EbayExample(SaunterTestCase):
 
     @pytest.marks('shallow', 'ebay', 'blacklist')
     def test_blacklist(self):
-        self.client.blacklist("http://www\\.facebook\\.com/.*", 200)
-        self.client.blacklist("http://static\\.ak\\.fbcdn\\.com/.*", 200)
+        self.client.blacklist("http://www\\.ebay\\.com/.*", 306)
+        self.client.blacklist("http://www\\.facebook\\.com/.*", 306)
         s = ShirtPage(self.driver)
         s.go_to_mens_dress_shirts()
         s.change_collar_style("Banded (Collarless)")
@@ -52,8 +53,8 @@ class EbayExample(SaunterTestCase):
         
     @pytest.marks('shallow', 'ebay', 'har')
     def test_har_retrieval(self):
-        self.client.blacklist("http://www\\.facebook\\.com/.*", 404)
-        self.client.blacklist("http://static\\.ak\\.fbcdn\\.com/.*", 404)
+        self.client.blacklist("http://www\\.facebook\\.com/.*", 306)
+        self.client.blacklist("http://static\\.ak\\.fbcdn\\.com/.*", 306)
         self.client.new_har("shirts")
         s = ShirtPage(self.driver)
         s.go_to_mens_dress_shirts()
@@ -69,3 +70,9 @@ class EbayExample(SaunterTestCase):
         table = self.driver.find_element_by_locator("id=v4-p225")
         row = table.find_element_by_locator("css=tr")
         assert(isinstance(row, saunter.web_element.WebElement))
+        
+    @pytest.marks('shallow', 'ebay', 'attributes')
+    def test_har_retrieval(self):
+        s = ShirtPage(self.driver)
+        s.go_to_mens_dress_shirts()
+        assert(s.result_count_class == 'rsltCnt')
