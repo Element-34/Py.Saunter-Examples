@@ -22,13 +22,13 @@ class CheckSearchCategories(SaunterTestCase):
     @pytest.marks('deep', 'ebay', 'select', 'single')
     def test_single_get(self):
         s = ShirtPage(self.driver)
-        s.go_to_mens_dress_shirts()
+        s.open()
         assert(s.current_search_category.selected == "Clothing, Shoes & Accessories")
 
     @pytest.marks('deep', 'ebay', 'select', 'single', 'bacon')
     def test_single_set_by_value(self):
         s = ShirtPage(self.driver)
-        s.go_to_mens_dress_shirts()
+        s.open()
         s.current_search_category.selected = "value=550"
         print(s.current_search_category.options)
         assert(s.current_search_category.selected == "Art")
@@ -36,13 +36,13 @@ class CheckSearchCategories(SaunterTestCase):
     @pytest.marks('deep', 'ebay', 'select', 'single')
     def test_single_set_by_index(self):
         s = ShirtPage(self.driver)
-        s.go_to_mens_dress_shirts()
+        s.open()
         s.current_search_category.selected = "index=2" # indexed from 1
         assert(s.current_search_category.selected == "Art")
 
     @pytest.marks('deep', 'ebay', 'select', 'single')
     def test_single_set_by_text(self):
         s = ShirtPage(self.driver)
-        s.go_to_mens_dress_shirts()
+        s.open()
         s.current_search_category.selected = "text=Art"
         assert(s.current_search_category.selected == "Art")

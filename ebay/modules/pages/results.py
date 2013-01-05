@@ -23,18 +23,10 @@ from saunter.ConfigWrapper import ConfigWrapper as cfg_wrapper
 from saunter.po.webdriver.attribute import Attribute
 
 locators = {
-    "collar style": 'css=a[title="REPLACE"] > div:first-child',
-    "current search category": 'id=gh-cat',
     "top search": 'id=gh-ac',
     "top search button": 'id=gh-btn',
-    "result count": 'id=v4-p308',
 }
 
-class CurrentSearchCategory(Select2):
-    def __init__(self, driver):
-        self.locator = locators["current search category"]
-        self.driver = driver
-        
 class TopSearchText(Text):
     def __init__(self):
         self.locator = locators['top search']
@@ -43,41 +35,20 @@ class TopSearchUnicode(Unicode):
     def __init__(self):
         self.locator = locators['top search']
 
-class ShirtPage(Page):
-    result_count_class = Attribute(locators["result count"], "class")
+class ResultsPage(Page):
     top_search_text = TopSearchText()
     top_search_unicode = TopSearchUnicode()
     
     def __init__(self, driver):
         self.driver = driver
         self.config = cfg_wrapper().config
-        self.current_search_category = CurrentSearchCategory(self.driver)
-        
-    def open(self):
-        self.driver.get("%s/mens-clothing/Dress-Shirts/57991" % self.config.get("Selenium", "base_url"))
-        return self
         
     def wait_until_loaded(self):
+        def waiter(driver):
+            if len(driver.find_elements_by_locator('css=.rsittlref')) == 48:
+                return True
+        self.wait.until(waiter)
         return self
         
-    def change_collar_style(self, style):
-        self.driver.find_element_by_locator(locators["collar style"].replace("REPLACE", style)).click()
-        self.wait_for_trobber_sync()
-        
-    def is_collar_selected(self, style):
-        if self.driver.is_element_present("%s .sl-deSel" % locators["collar style"].replace("REPLACE", style)):
-            return False
-        return True
-        
-    def get_meta_elements(self):
-        return self.driver.find_elements_by_locator("tag=meta")
-        
-    def get_meta_element(self, name):
-        return self.driver.find_element_by_locator('css=meta[name="%s"]' % name)
-
-    def push_the_search_button(self):
-        b = self.driver.find_element_by_locator(locators['top search button'])
-        b.click()
-        
-        from pages.results import ResultsPage
-        return ResultsPage(self.driver).wait_until_loaded()
+    def validate(self):
+        return self
