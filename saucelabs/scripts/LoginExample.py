@@ -15,8 +15,8 @@
 from saunter.testcase.remotecontrol import SaunterTestCase
 
 from pages.HomePage import HomePage
-
 import pytest
+
 
 class CheckLoginExample(SaunterTestCase):
     @pytest.marks('deep', 'sauce', 'login')
@@ -27,7 +27,7 @@ class CheckLoginExample(SaunterTestCase):
         l.username = "foo"
         l.password = "bar"
         l.do_login()
-        self.assertEqual(l.error_message, "Incorrect username or password.")
+        self.matchers.assert_equal(l.error_message, "Incorrect username or password.")
 
     @pytest.marks('deep', 'sauce', 'login')
     def test_incorrect_login_with_soft_assert(self):
@@ -37,7 +37,7 @@ class CheckLoginExample(SaunterTestCase):
         l.username = "foo"
         l.password = "bar"
         l.do_login()
-        self.verify_equal(l.error_message, "Incorrect username or password.")
+        self.matchers.verify_equal(l.error_message, "Incorrect username or password.")
 
     @pytest.marks('deep', 'sauce', 'login')
     def test_incorrect_login_with_random_username_and_password(self):
@@ -50,7 +50,7 @@ class CheckLoginExample(SaunterTestCase):
         l.password = random_string()
         
         l.do_login()
-        self.assertEqual(l.error_message, "Incorrect username or password.")
+        self.matchers.assert_equal(l.error_message, "Incorrect username or password.")
 
     @pytest.marks('deep', 'sauce', 'login', 'csv')
     def test_incorrect_login_from_csv(self):
@@ -65,7 +65,8 @@ class CheckLoginExample(SaunterTestCase):
         l.password = data['password']
         
         l.do_login()
-        self.assertEqual(l.error_message, "Incorrect username or password.")
+        self.take_numbered_screenshot()
+        self.matchers.assert_equal(l.error_message, "Incorrect username or password.")
 
     @pytest.marks('deep', 'sauce', 'login', "db")
     def test_incorrect_login_from_sqlite3(self):
@@ -80,9 +81,13 @@ class CheckLoginExample(SaunterTestCase):
         l.password = data['password']
 
         l.do_login()
-        self.assertEqual(l.error_message, "Incorrect username or password.")
+
+        self.take_numbered_screenshot()
+        self.take_named_screenshot('foo')
         
-    @pytest.marks('deep', 'sauce', 'login')
+        self.matchers.assert_equal(l.error_message, "Incorrect username or password.")
+        
+    @pytest.marks('deep', 'sauce', 'login', 'fail')
     def test_incorrect_login_fails(self):
         h = HomePage()
         h.open_default_url()
@@ -90,4 +95,4 @@ class CheckLoginExample(SaunterTestCase):
         l.username = "foo"
         l.password = "bar"
         l.do_login()
-        self.assertEqual(l.error_message, "This message is deliberately incorrect to trigger a failed test.")
+        self.matchers.assert_equal(l.error_message, "This message is deliberately incorrect to trigger a failed test.")
