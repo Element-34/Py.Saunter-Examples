@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="2" failures="0" name="" skips="0" tests="0" time="27.831"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="25.9885149002"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101a86e10&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101a86e10&gt;&gt;
+
+    def setup_method(self, method):
+        super(type(self), self).setup_method(method)
+&gt;       self.u = Upload(self.driver).open().wait_until_loaded()
+
+scripts/FileUpload.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101a69d50&gt;
+
+&gt;   ???
+
+/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/upload.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait object at 0x101a69690&gt;
+method = &lt;function &lt;lambda&gt; at 0x101c81230&gt;, message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+            return value is not False.&quot;&quot;&quot;
+        end_time = time.time() + self._timeout
+        while(True):
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions:
+                pass
+            time.sleep(self._poll)
+            if(time.time() &gt; end_time):
+                break
+&gt;       raise TimeoutException(message)
+E       TimeoutException: Message: &apos;&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/support/wait.py:71: TimeoutException</error></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.643425941467"><error message="test setup failure">__multicall__ = &lt;MultiCall 0 results, 0 meths, kwargs={&apos;item&apos;: &lt;Function &apos;test_local_upload&apos;&gt;, &apos;nextitem&apos;: None}&gt;
+item = &lt;Function &apos;test_local_upload&apos;&gt;
+
+    def pytest_runtest_teardown(__multicall__, item):
+        __multicall__.execute()
+    
+        if hasattr(item.parent.obj, &apos;config&apos;) and item.parent.obj.config.getboolean(&apos;SauceLabs&apos;, &apos;ondemand&apos;):
+&gt;           s = saunter.saucelabs.SauceLabs(item)
+E           NameError: global name &apos;saunter&apos; is not defined
+
+conftest.py:54: NameError</error></testcase></testsuite>

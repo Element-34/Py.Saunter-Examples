@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="" skips="0" tests="1" time="26.989"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.609326124191"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/rc/conftest.py&quot;, line 32, in pytest_runtest_call
+    raise(e)
+Exception: java.lang.RuntimeException: java.net.ConnectException: Connection refused</failure></testcase></testsuite>

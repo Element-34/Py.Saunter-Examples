@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="6.727"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="5.11597394943"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101a6e590&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101a6e590&gt;&gt;
+
+    def setup_method(self, method):
+        super(type(self), self).setup_method(method)
+&gt;       self.u = Upload(self.driver).open().wait_until_loaded()
+
+scripts/FileUpload.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101a8fe10&gt;
+
+    def open(self):
+&gt;       self.driver.get(self.config.get(&apos;Selenium&apos;, &apos;base_url&apos;))
+
+modules/pages/upload.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101a8fe10&gt;, name = &apos;config&apos;
+
+    def __getattribute__(self, name):
+&gt;       attr = object.__getattribute__(self, name)
+E       AttributeError: &apos;Upload&apos; object has no attribute &apos;config&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/po/webdriver/page.py:43: AttributeError</error></testcase></testsuite>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="" skips="0" tests="1" time="10.504"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.462502002716"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/conftest.py&quot;, line 31, in pytest_runtest_call
+    raise(e)
+NoSuchElementException: Message: &apos;Cannot locate option with value: 30 minutes&apos;</failure></testcase></testsuite>

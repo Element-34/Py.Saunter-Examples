@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="12.030"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="11.0334839821"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101ab21d0&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101ab21d0&gt;&gt;
+
+    def setup_method(self, method):
+        super(type(self), self).setup_method(method)
+&gt;       self.u = Upload(self.driver).open().wait_until_loaded()
+E       TypeError: __init__() takes exactly 1 argument (2 given)
+
+scripts/FileUpload.py:8: TypeError</error></testcase></testsuite>

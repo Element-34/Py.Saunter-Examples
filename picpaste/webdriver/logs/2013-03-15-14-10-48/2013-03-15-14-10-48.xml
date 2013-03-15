@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="17.502"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="16.0287930965"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101a71110&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101a71110&gt;&gt;
+
+    def setup_method(self, method):
+        super(type(self), self).setup_method(method)
+&gt;       self.u = Upload(self.driver).open().wait_until_loaded()
+
+scripts/FileUpload.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101a71910&gt;
+
+    def wait_until_loaded(self):
+&gt;       self.short_wait.until(lambda driver: driver.find_element_by_locator(locators[&apos;upload&apos;]))
+
+modules/pages/upload.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait object at 0x101a71150&gt;
+method = &lt;function &lt;lambda&gt; at 0x101c81578&gt;, message = &apos;&apos;
+
+    def until(self, method, message=&apos;&apos;):
+        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \
+            return value is not False.&quot;&quot;&quot;
+        end_time = time.time() + self._timeout
+        while(True):
+            try:
+&gt;               value = method(self._driver)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/support/wait.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+driver = &lt;tailored.webdriver.WebDriver object at 0x101a713d0&gt;
+
+&gt;   self.short_wait.until(lambda driver: driver.find_element_by_locator(locators[&apos;upload&apos;]))
+
+modules/pages/upload.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101a713d0&gt;
+locator = &apos;css=input[name=&quot;upload]&apos;
+
+    def find_element_by_locator(self, locator):
+        locator_type = locator[:locator.find(&quot;=&quot;)]
+        if locator_type == &quot;&quot;:
+            raise saunter.exceptions.InvalidLocatorString(locator)
+        locator_value = locator[locator.find(&quot;=&quot;) + 1:]
+        if locator_type == &apos;class&apos;:
+            return WebElement(self.find_element_by_class_name(locator_value))
+        elif locator_type == &apos;css&apos;:
+&gt;           return WebElement(self.find_element_by_css_selector(locator_value))
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/SaunterWebDriver.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101a713d0&gt;
+css_selector = &apos;input[name=&quot;upload]&apos;
+
+    def find_element_by_css_selector(self, css_selector):
+        &quot;&quot;&quot;
+            Finds an element by css selector.
+    
+            :Args:
+             - css_selector: The css selector to use when finding elements.
+    
+            :Usage:
+                driver.find_element_by_css_selector(&apos;#foo&apos;)
+            &quot;&quot;&quot;
+&gt;       return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:361: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101a713d0&gt;, by = &apos;css selector&apos;
+value = &apos;input[name=&quot;upload]&apos;
+
+    def find_element(self, by=By.ID, value=None):
+        &quot;&quot;&quot;
+            &apos;Private&apos; method used by the find_element_by_* methods.
+    
+            :Usage:
+                Use the corresponding find_element_by_* instead of this.
+            &quot;&quot;&quot;
+        if isinstance(by, tuple) or isinstance(value, int) or value==None:
+            raise InvalidSelectorException(&quot;Invalid locator values passed in&quot;)
+    
+        return self.execute(Command.FIND_ELEMENT,
+&gt;                            {&apos;using&apos;: by, &apos;value&apos;: value})[&apos;value&apos;]
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:675: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101a713d0&gt;
+driver_command = &apos;findElement&apos;
+params = {&apos;sessionId&apos;: u&apos;2364459c-68e3-40b0-8e1e-69840a0002db&apos;, &apos;using&apos;: &apos;css selector&apos;, &apos;value&apos;: &apos;input[name=&quot;upload]&apos;}
+
+    def execute(self, driver_command, params=None):
+        &quot;&quot;&quot;
+            Sends a command to be executed by a command.CommandExecutor.
+    
+            :Args:
+             - driver_command: The name of the command to execute as a string.
+             - params: A dictionary of named parameters to send with the command.
+    
+            :Returns:
+              The command&apos;s JSON response loaded into a dictionary object.
+            &quot;&quot;&quot;
+        if not params:
+            params = {&apos;sessionId&apos;: self.session_id}
+        elif &apos;sessionId&apos; not in params:
+            params[&apos;sessionId&apos;] = self.session_id
+    
+        params = self._wrap_value(params)
+        response = self.command_executor.execute(driver_command, params)
+        if response:
+&gt;           self.error_handler.check_response(response)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x101a719d0&gt;
+response = {u&apos;class&apos;: u&apos;org.openqa.selenium.remote.Response&apos;, u&apos;hCode&apos;: 430554787, u&apos;sessionId&apos;: u&apos;2364459c-68e3-40b0-8e1e-69840a0002db&apos;, u&apos;state&apos;: u&apos;unhandled error&apos;, ...}
+
+    def check_response(self, response):
+        &quot;&quot;&quot;
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            &quot;&quot;&quot;
+        status = response[&apos;status&apos;]
+        if status == ErrorCode.SUCCESS:
+            return
+        exception_class = ErrorInResponseException
+        if status == ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status == ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status == ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status == ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status == ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status == ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status == ErrorCode.INVALID_SELECTOR \
+                or status == ErrorCode.INVALID_XPATH_SELECTOR \
+                or status == ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status == ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status == ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status == ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status == ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status == ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status == ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status == ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status == ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status == ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status == ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        value = response[&apos;value&apos;]
+        if type(value) is str:
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        message = &apos;&apos;
+        if &apos;message&apos; in value:
+            message = value[&apos;message&apos;]
+    
+        screen = None
+        if &apos;screen&apos; in value:
+            screen = value[&apos;screen&apos;]
+    
+        stacktrace = None
+        if &apos;stackTrace&apos; in value and value[&apos;stackTrace&apos;]:
+            zeroeth = &apos;&apos;
+            try:
+                zeroeth = value[&apos;stackTrace&apos;][0]
+            except:
+                pass
+            if zeroeth.has_key(&apos;methodName&apos;):
+                stacktrace = &quot;Method %s threw an error in %s&quot; % \
+                    (zeroeth[&apos;methodName&apos;],
+                    self._value_or_default(zeroeth, &apos;fileName&apos;, &apos;[No file name]&apos;))
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+&gt;       raise exception_class(message, screen, stacktrace)
+E       WebDriverException: Message: u&quot;An invalid or illegal string was specified\nBuild info: version: &apos;2.31.0&apos;, revision: &apos;1bd294d&apos;, time: &apos;2013-02-27 20:52:59&apos;\nSystem info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.2&apos;, java.version: &apos;1.6.0_43&apos;\nDriver info: driver.version: unknown&quot; ; Screenshot: available via screen
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/errorhandler.py:149: WebDriverException</error></testcase></testsuite>

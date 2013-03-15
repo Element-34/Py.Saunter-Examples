@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="6.273"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="4.63811612129"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101a6eb10&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101a6eb10&gt;&gt;
+
+    def setup_method(self, method):
+        super(type(self), self).setup_method(method)
+&gt;       self.u = Upload(self.driver).open().wait_until_loaded()
+
+scripts/FileUpload.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101a8fc50&gt;
+driver = &lt;tailored.webdriver.WebDriver object at 0x101a6e6d0&gt;
+
+    def __init__(self, driver):
+&gt;       super(type(self), self).__init__(driver)
+
+modules/pages/upload.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101a8fc50&gt;
+driver = &lt;tailored.webdriver.WebDriver object at 0x101a6e6d0&gt;
+
+    def __init__(self, driver):
+        self.driver = driver
+        if not hasattr(self, &apos;config&apos;):
+            self.config = ConfigWrapper().config
+    
+        if not hasattr(self, &apos;short_wait&apos;):
+            setattr(self, &apos;short_wait&apos;, WebDriverWait(self.driver, self.config.getint(&apos;Selenium&apos;, &apos;timeout&apos;) / 2))
+&gt;           setattr(self, &apos;wait&apos;, WebDriverWait(self.config.getint(&apos;Selenium&apos;, &apos;timeout&apos;)))
+E           TypeError: __init__() takes at least 3 arguments (2 given)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/po/webdriver/page.py:38: TypeError</error></testcase></testsuite>

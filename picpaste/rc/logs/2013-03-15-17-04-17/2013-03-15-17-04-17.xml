@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="6.221"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="4.91759896278"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101ab5f10&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101ab5f10&gt;&gt;
+
+    def setup_method(self, method):
+        super(type(self), self).setup_method(method)
+&gt;       self.u = Upload().open().wait_until_loaded()
+
+scripts/FileUpload.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101ab5810&gt;
+
+    def __init__(self):
+&gt;       super(type(self), self).__init__(self)
+E       TypeError: object.__init__() takes no parameters
+
+modules/pages/upload.py:28: TypeError</error></testcase></testsuite>
