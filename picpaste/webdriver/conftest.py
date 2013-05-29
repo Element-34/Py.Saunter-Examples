@@ -34,7 +34,12 @@ def pytest_runtest_call(item, __multicall__):
 def pytest_runtest_makereport(__multicall__, item, call):
     if call.when == "call":
         try:
-            assert([] == item.parent.obj.verificationErrors)
+            if len(item.parent.obj.verificationErrors) != 0:
+                if call.excinfo:
+                    bits = call.excinfo.exconly().split(':')
+                    raise AssertionError({bits[0]: call.excinfo.exconly()[len(bits[0]) + 2:], "Verification Failures": item.parent.obj.verificationErrors})
+                else:
+                    raise AssertionError(item.parent.obj.verificationErrors)
         except AssertionError:
             call.excinfo = py.code.ExceptionInfo()
 
