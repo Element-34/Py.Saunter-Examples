@@ -10,7 +10,7 @@ locators = {
     'button': 'css=input[type="submit"]',
     'storetime': 'css=select[name="storetime"]',
     'obscure_filename': 'css=select[name="addprivacy"]',
-    'accept_rules': 'css=select[name="rules"]',
+    'accept_rules': 'css=input[name="rules"]',
 }
 
 class StoreTime(Select2):
