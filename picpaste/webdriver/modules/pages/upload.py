@@ -22,7 +22,7 @@ class ObscureFilename(Select2):
         self.locator = locators["obscure_filename"]
         self.driver = driver
 
-class AcceptRules(Select2):
+class AcceptRules(CheckBox):
     def __init__(self, driver):
         self.locator = locators["accept_rules"]
         self.driver = driver
@@ -51,7 +51,9 @@ class Upload(Page):
 
         self.storetime.selected = "text=%s" % storetime
         self.obscure_filename.selected = "text=%s" % obscure_filename
-        self.accept_rules.selected = "text=%s" % accept_rules
+        if accept_rules == "Yes":
+            checkbox = self.driver.find_element_by_locator(locators['accept_rules'])
+            checkbox.click()
 
         button = self.driver.find_element_by_locator(locators['button'])
         button.click()
