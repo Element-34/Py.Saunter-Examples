@@ -1,6 +1,7 @@
 from saunter.po.webdriver.page import Page
 from selenium.webdriver.support.wait import WebDriverWait
 from saunter.po.webdriver.select import Select2
+from saunter.po.webdriver.checkbox import CheckBox
 import os.path
 from pages.preview import Preview
 
@@ -9,7 +10,7 @@ locators = {
     'button': 'css=input[type="submit"]',
     'storetime': 'css=select[name="storetime"]',
     'obscure_filename': 'css=select[name="addprivacy"]',
-    'accept_rules': 'css=select[name="rules"]',
+    'accept_rules': 'css=input[name="rules"]',
 }
 
 class StoreTime(Select2):
@@ -22,7 +23,7 @@ class ObscureFilename(Select2):
         self.locator = locators["obscure_filename"]
         self.driver = driver
 
-class AcceptRules(Select2):
+class AcceptRules(CheckBox):
     def __init__(self, driver):
         self.locator = locators["accept_rules"]
         self.driver = driver
@@ -51,7 +52,9 @@ class Upload(Page):
 
         self.storetime.selected = "text=%s" % storetime
         self.obscure_filename.selected = "text=%s" % obscure_filename
-        self.accept_rules.selected = "text=%s" % accept_rules
+        if accept_rules == "Yes":
+            checkbox = self.driver.find_element_by_locator(locators['accept_rules'])
+            checkbox.click()
 
         button = self.driver.find_element_by_locator(locators['button'])
         button.click()
