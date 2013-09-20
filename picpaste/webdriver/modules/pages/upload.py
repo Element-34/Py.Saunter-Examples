@@ -1,6 +1,7 @@
 from saunter.po.webdriver.page import Page
 from selenium.webdriver.support.wait import WebDriverWait
 from saunter.po.webdriver.select import Select2
+from saunter.po.webdriver.checkbox import CheckBox
 import os.path
 from pages.preview import Preview
 
