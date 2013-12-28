@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="0.417"><testcase classname="" name="scripts.FileUpload" time="0"><failure message="collection failure">scripts/FileUpload.py:3: in &lt;module&gt;
+&gt;   from pages.upload import Upload
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+&gt;           py.builtin.exec_(co, mod.__dict__)
+/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/upload.py:1: in &lt;module&gt;
+&gt;   ???
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/po/__init__.py:29: in &lt;module&gt;
+&gt;       timeout_seconds = cf[&quot;Selenium&quot;][&quot;timeout&quot;]
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/ConfigWrapper.py:40: in __getitem__
+&gt;       return self._data[key]
+E       KeyError: &apos;Selenium&apos;</failure></testcase></testsuite>

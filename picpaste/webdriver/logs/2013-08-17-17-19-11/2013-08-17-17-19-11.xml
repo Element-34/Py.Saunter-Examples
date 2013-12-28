@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="2" failures="0" name="" skips="0" tests="0" time="5.449"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="4.2827501297"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101b08750&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b08750&gt;&gt;
+
+    def setup_method(self, method):
+        super(CheckFileUpload, self).setup_method(method)
+&gt;       self.u = Upload(self.driver).open().wait_until_loaded()
+
+scripts/FileUpload.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101b68b10&gt;
+driver = &lt;tailored.webdriver.WebDriver object at 0x101b08c90&gt;
+
+&gt;   ???
+
+/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/upload.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101b68b10&gt;
+driver = &lt;tailored.webdriver.WebDriver object at 0x101b08c90&gt;
+
+    def __init__(self, driver):
+        self.driver = driver
+        if not hasattr(self, &apos;config&apos;):
+&gt;           self.config = ConfigWrapper().config
+E           AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;config&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/po/webdriver/page.py:34: AttributeError</error></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.276470184326"><error message="test setup failure">__multicall__ = &lt;MultiCall 0 results, 0 meths, kwargs={&apos;item&apos;: &lt;Function &apos;test_local_upload&apos;&gt;, &apos;nextitem&apos;: None}&gt;
+item = &lt;Function &apos;test_local_upload&apos;&gt;
+
+    def pytest_runtest_teardown(__multicall__, item):
+        __multicall__.execute()
+    
+&gt;       if hasattr(item.parent.obj, &apos;config&apos;) and &quot;saucelabs&quot; in item.parent.obj[&quot;config&quot;][&quot;browsers&quot;][item.parent.obj[&quot;config&quot;][&quot;saunter&quot;][&quot;default_browser&quot;]] and item.parent.obj[&quot;config&quot;][&quot;browsers&quot;][item.parent.obj[&quot;config&quot;][&quot;saunter&quot;][&quot;default_browser&quot;]][&quot;saucelabs&quot;][&quot;ondemand&quot;]:
+E       TypeError: &apos;CheckFileUpload&apos; object is not subscriptable
+
+conftest.py:59: TypeError</error></testcase></testsuite>

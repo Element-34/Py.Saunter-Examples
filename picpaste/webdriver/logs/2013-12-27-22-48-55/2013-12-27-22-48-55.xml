@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="pytest" skips="0" tests="0" time="1.262"><testcase classname="" name="scripts.FileUpload" time="0"><failure message="collection failure">scripts/FileUpload.py:3: in &lt;module&gt;
+&gt;   from pages.upload import Upload
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+&gt;           py.builtin.exec_(co, mod.__dict__)
+/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/upload.py:3: in &lt;module&gt;
+&gt;   ???
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+&gt;           py.builtin.exec_(co, mod.__dict__)
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/po/webdriver/select.py:21: in &lt;module&gt;
+&gt;   from saunter.SeleniumWrapper import SeleniumWrapper as wrapper
+E   ImportError: No module named SeleniumWrapper</failure></testcase></testsuite>

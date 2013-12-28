@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="pytest" skips="0" tests="0" time="14.892"><testcase classname="pytest" name="internal"><error message="internal error">Traceback (most recent call last):
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/main.py&quot;, line 81, in wrap_session
+    doit(config, session)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/main.py&quot;, line 117, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 376, in __call__
+    return self._docall(methods, kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 387, in _docall
+    res = mc.execute()
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 288, in execute
+    res = method(**kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/main.py&quot;, line 137, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 376, in __call__
+    return self._docall(methods, kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 387, in _docall
+    res = mc.execute()
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 288, in execute
+    res = method(**kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/runner.py&quot;, line 62, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/runner.py&quot;, line 72, in runtestprotocol
+    reports.append(call_and_report(item, &quot;call&quot;, log))
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/runner.py&quot;, line 108, in call_and_report
+    report = hook.pytest_runtest_makereport(item=item, call=call)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/main.py&quot;, line 161, in call_matching_hooks
+    return hookmethod.pcall(plugins, **kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 380, in pcall
+    return self._docall(methods, kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 387, in _docall
+    res = mc.execute()
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 288, in execute
+    res = method(**kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/capture.py&quot;, line 195, in pytest_runtest_makereport
+    rep = __multicall__.execute()
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/core.py&quot;, line 288, in execute
+    res = method(**kwargs)
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/conftest.py&quot;, line 51, in pytest_runtest_makereport
+    if hasattr(item.parent.obj, &apos;config&apos;) and item.parent.obj.config.getboolean(&apos;SauceLabs&apos;, &apos;ondemand&apos;):
+AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;getboolean&apos;</error></testcase></testsuite>

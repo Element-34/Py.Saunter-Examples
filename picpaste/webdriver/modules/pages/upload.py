@@ -1,6 +1,7 @@
 from saunter.po.webdriver.page import Page
 from selenium.webdriver.support.wait import WebDriverWait
 from saunter.po.webdriver.select import Select2
+from saunter.po.webdriver.checkbox import CheckBox
 import os.path
 from pages.preview import Preview
 
@@ -9,7 +10,7 @@ locators = {
     'button': 'css=input[type="submit"]',
     'storetime': 'css=select[name="storetime"]',
     'obscure_filename': 'css=select[name="addprivacy"]',
-    'accept_rules': 'css=select[name="rules"]',
+    'accept_rules': 'css=input[name="rules"]',
 }
 
 class StoreTime(Select2):
@@ -22,21 +23,21 @@ class ObscureFilename(Select2):
         self.locator = locators["obscure_filename"]
         self.driver = driver
 
-class AcceptRules(Select2):
-    def __init__(self, driver):
+class AcceptRules(CheckBox):
+    def __init__(self):
         self.locator = locators["accept_rules"]
-        self.driver = driver
 
 class Upload(Page):
+    accept_rules = AcceptRules()
+
     def __init__(self, driver):
         super(type(self), self).__init__(driver)
         self.driver = driver
         self.storetime = StoreTime(driver)
         self.obscure_filename = ObscureFilename(driver)
-        self.accept_rules = AcceptRules(driver)
 
     def open(self):
-        self.driver.get(self.config.get('Selenium', 'base_url'))
+        self.driver.get(self.cf['saunter']['base_url'])
         return self
 
     def wait_until_loaded(self):
@@ -44,14 +45,14 @@ class Upload(Page):
         return self
 
     def upload(self, image, storetime="30 Minutes", obscure_filename="basic", accept_rules="Yes"):
-        path_to_image = os.path.join(self.config.get('Saunter', 'base'), 'support', 'files', image)
+        path_to_image = os.path.join(self.config['saunter']['base'], 'support', 'files', image)
 
         u = self.driver.find_element_by_locator(locators['upload'])
         u.send_keys(path_to_image)
 
         self.storetime.selected = "text=%s" % storetime
         self.obscure_filename.selected = "text=%s" % obscure_filename
-        self.accept_rules.selected = "text=%s" % accept_rules
+        self.accept_rules = True
 
         button = self.driver.find_element_by_locator(locators['button'])
         button.click()

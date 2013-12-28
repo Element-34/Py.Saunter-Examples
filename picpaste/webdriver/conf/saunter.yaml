@@ -1,0 +1,11 @@
+%YAML 1.3
+---
+default_browser: firefox
+
+ci_type: jenkins
+
+screenshots:
+    on_failure: true
+    on_error: true
+
+base_url: http://picpaste.com

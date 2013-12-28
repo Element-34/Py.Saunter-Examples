@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="1" time="32.258"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="23.237432003"/><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.0310459136963"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101b80e90&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b80e90&gt;&gt;
+
+    def teardown_method(self, method):
+&gt;       super(CheckFileUpload, self).teardown_method(method)
+
+scripts/FileUpload.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101b80e90&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b80e90&gt;&gt;
+
+    def teardown_method(self, method):
+        &quot;&quot;&quot;
+            Default teardown method for all scripts. If run through Sauce Labs OnDemand, the job name, status and tags
+            are updated. Also the video and server log are downloaded if so configured.
+            &quot;&quot;&quot;
+        if hasattr(self, &quot;config&quot;) and not self.config.getboolean(&quot;SauceLabs&quot;, &quot;ondemand&quot;):
+&gt;           self.take_named_screenshot(&quot;final&quot;)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101b80e90&gt;, name = &apos;final&apos;
+
+    def take_named_screenshot(self, name):
+        method_dir = self._screenshot_prep_dirs()
+    
+        image_path = os.path.join(method_dir, str(name) + &quot;.png&quot;)
+&gt;       self.driver.get_screenshot_as_file(image_path)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101afa5d0&gt;
+filename = &apos;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/logs/2013-06-03-05-54-29/CheckFileUpload/test_local_upload/final.png&apos;
+
+    def get_screenshot_as_file(self, filename):
+        &quot;&quot;&quot;
+            Gets the screenshot of the current window. Returns False if there is
+               any IOError, else returns True. Use full paths in your filename.
+    
+            :Args:
+             - filename: The full path you wish to save your screenshot to.
+    
+            :Usage:
+                driver.get_screenshot_as_file(&apos;/Screenshots/foo.png&apos;)
+            &quot;&quot;&quot;
+&gt;       png = self.execute(Command.SCREENSHOT)[&apos;value&apos;]
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:712: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101afa5d0&gt;
+driver_command = &apos;screenshot&apos;
+params = {&apos;sessionId&apos;: u&apos;83b5eefb-4528-41a2-a642-64bb19276c0b&apos;}
+
+    def execute(self, driver_command, params=None):
+        &quot;&quot;&quot;
+            Sends a command to be executed by a command.CommandExecutor.
+    
+            :Args:
+             - driver_command: The name of the command to execute as a string.
+             - params: A dictionary of named parameters to send with the command.
+    
+            :Returns:
+              The command&apos;s JSON response loaded into a dictionary object.
+            &quot;&quot;&quot;
+        if not params:
+            params = {&apos;sessionId&apos;: self.session_id}
+        elif &apos;sessionId&apos; not in params:
+            params[&apos;sessionId&apos;] = self.session_id
+    
+        params = self._wrap_value(params)
+        response = self.command_executor.execute(driver_command, params)
+        if response:
+&gt;           self.error_handler.check_response(response)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:165: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x101afaad0&gt;
+response = {u&apos;class&apos;: u&apos;org.openqa.selenium.remote.Response&apos;, u&apos;hCode&apos;: 99484925, u&apos;sessionId&apos;: u&apos;83b5eefb-4528-41a2-a642-64bb19276c0b&apos;, u&apos;state&apos;: u&apos;unhandled error&apos;, ...}
+
+    def check_response(self, response):
+        &quot;&quot;&quot;
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            &quot;&quot;&quot;
+        status = response[&apos;status&apos;]
+        if status == ErrorCode.SUCCESS:
+            return
+        exception_class = ErrorInResponseException
+        if status == ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status == ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status == ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status == ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status == ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status == ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status == ErrorCode.INVALID_SELECTOR \
+                or status == ErrorCode.INVALID_XPATH_SELECTOR \
+                or status == ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status == ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status == ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status == ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status == ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status == ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status == ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status == ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status == ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status == ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status == ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status == ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        value = response[&apos;value&apos;]
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        message = &apos;&apos;
+        if &apos;message&apos; in value:
+            message = value[&apos;message&apos;]
+    
+        screen = None
+        if &apos;screen&apos; in value:
+            screen = value[&apos;screen&apos;]
+    
+        stacktrace = None
+        if &apos;stackTrace&apos; in value and value[&apos;stackTrace&apos;]:
+            stacktrace = []
+            try:
+                for frame in value[&apos;stackTrace&apos;]:
+                    line = self._value_or_default(frame, &apos;lineNumber&apos;, &apos;&apos;)
+                    file = self._value_or_default(frame, &apos;fileName&apos;, &apos;&lt;anonymous&gt;&apos;)
+                    if line:
+                        file = &quot;%s:%s&quot; % (file, line)
+                    meth = self._value_or_default(frame, &apos;methodName&apos;, &apos;&lt;anonymous&gt;&apos;)
+                    if &apos;className&apos; in frame:
+                        meth = &quot;%s.%s&quot; % (frame[&apos;className&apos;], meth)
+                    msg = &quot;    at %s (%s)&quot;
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+&gt;       raise exception_class(message, screen, stacktrace)
+E       WebDriverException: Message: u&quot;Error communicating with the remote browser. It may have died.\nBuild info: version: &apos;2.33.0&apos;, revision: &apos;4e90c97&apos;, time: &apos;2013-05-22 15:32:38&apos;\nSystem info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.8.3&apos;, java.version: &apos;1.6.0_45&apos;\nDriver info: driver.version: FirefoxDriver&quot; ; Stacktrace: 
+E           at org.openqa.selenium.remote.RemoteWebDriver.execute (RemoteWebDriver.java:548)
+E           at org.openqa.selenium.remote.RemoteWebDriver.execute (RemoteWebDriver.java:569)
+E           at org.openqa.selenium.firefox.FirefoxDriver.getScreenshotAs (FirefoxDriver.java:316)
+E           at org.openqa.selenium.remote.server.handler.CaptureScreenshot.call (CaptureScreenshot.java:35)
+E           at org.openqa.selenium.remote.server.handler.CaptureScreenshot.call (CaptureScreenshot.java:1)
+E           at java.util.concurrent.FutureTask$Sync.innerRun (FutureTask.java:303)
+E           at java.util.concurrent.FutureTask.run (FutureTask.java:138)
+E           at org.openqa.selenium.remote.server.DefaultSession$1.run (DefaultSession.java:169)
+E           at java.util.concurrent.ThreadPoolExecutor$Worker.runTask (ThreadPoolExecutor.java:895)
+E           at java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:918)
+E           at java.lang.Thread.run (Thread.java:680)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/errorhandler.py:158: WebDriverException</error></testcase></testsuite>

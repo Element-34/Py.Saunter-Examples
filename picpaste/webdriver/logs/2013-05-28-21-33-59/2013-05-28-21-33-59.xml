@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="0.621"><testcase classname="" name="scripts.FileUpload" time="0"><failure message="collection failure">scripts/FileUpload.py:1: in &lt;module&gt;
+&gt;   from saunter.testcase.webdriver import SaunterTestCase
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+&gt;           py.builtin.exec_(co, mod.__dict__)
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:46: in &lt;module&gt;
+&gt;   from saunter.testcase.base import BaseTestCase
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+&gt;           py.builtin.exec_(co, mod.__dict__)
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/base.py:19: in &lt;module&gt;
+&gt;   import saunter.matchers as matchers
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+&gt;           py.builtin.exec_(co, mod.__dict__)
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/matchers.py:5: in &lt;module&gt;
+&gt;   import stack
+E   ImportError: No module named stack</failure></testcase></testsuite>

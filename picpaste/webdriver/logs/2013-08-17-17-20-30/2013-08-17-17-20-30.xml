@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="5.543"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="4.95648193359"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101b06050&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b06050&gt;&gt;
+
+    def setup_method(self, method):
+        super(CheckFileUpload, self).setup_method(method)
+&gt;       self.u = Upload(self.driver).open().wait_until_loaded()
+
+scripts/FileUpload.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101b06b90&gt;
+driver = &lt;tailored.webdriver.WebDriver object at 0x101b06e90&gt;
+
+&gt;   ???
+
+/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/upload.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pages.upload.Upload object at 0x101b06b90&gt;
+driver = &lt;tailored.webdriver.WebDriver object at 0x101b06e90&gt;
+
+    def __init__(self, driver):
+        self.driver = driver
+        if not hasattr(self, &apos;config&apos;):
+&gt;           self.config = ConfigWrapper().config
+E           AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;config&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/po/webdriver/page.py:34: AttributeError</error></testcase></testsuite>

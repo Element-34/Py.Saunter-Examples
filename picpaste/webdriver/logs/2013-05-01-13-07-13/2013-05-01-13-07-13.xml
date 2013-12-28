@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="" skips="0" tests="1" time="21.334"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_banana" time="0.335533857346"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/conftest.py&quot;, line 32, in pytest_runtest_call
+    raise(e)
+AttributeError: &apos;CheckFileUpload&apos; object has no attribute &apos;selenium&apos;</failure><system-out>[[ATTACHMENT|/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/logs/2013-05-01-13-07-13/CheckFileUpload/test_banana/exception.png]]</system-out></testcase></testsuite>

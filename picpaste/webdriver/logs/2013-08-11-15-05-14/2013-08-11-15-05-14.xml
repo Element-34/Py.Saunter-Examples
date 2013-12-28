@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="2" failures="0" name="" skips="0" tests="0" time="0.536"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.00084400177002"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;&gt;
+
+    def setup_method(self, method):
+&gt;       super(CheckFileUpload, self).setup_method(method)
+
+scripts/FileUpload.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;&gt;
+
+    def setup_method(self, method):
+        &quot;&quot;&quot;
+            Parent class of all script classes used for custom asserts (usually &apos;soft&apos; asserts) and shared fixture setup
+            and teardown
+            &quot;&quot;&quot;
+        self.cf = self.config = saunter.ConfigWrapper.ConfigWrapper()
+    
+        self.current_method_name = method.__name__
+    
+&gt;       browser = self.cf.get(&quot;Selenium&quot;, &quot;browser&quot;)
+E       AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;get&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:92: AttributeError</error></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.000828981399536"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;&gt;
+
+    def teardown_method(self, method):
+&gt;       super(CheckFileUpload, self).teardown_method(method)
+
+scripts/FileUpload.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101bd0690&gt;&gt;
+
+    def teardown_method(self, method):
+        &quot;&quot;&quot;
+            Default teardown method for all scripts. If run through Sauce Labs OnDemand, the job name, status and tags
+            are updated. Also the video and server log are downloaded if so configured.
+            &quot;&quot;&quot;
+&gt;       if hasattr(self, &quot;config&quot;) and not self.config.getboolean(&quot;SauceLabs&quot;, &quot;ondemand&quot;):
+E       AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;getboolean&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:162: AttributeError</error></testcase></testsuite>

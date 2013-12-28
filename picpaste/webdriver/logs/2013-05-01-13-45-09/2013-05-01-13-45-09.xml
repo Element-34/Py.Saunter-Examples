@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="2" failures="0" name="" skips="0" tests="0" time="3.365"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_banana" time="2.6732571125"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;&gt;
+
+    def setup_method(self, method):
+&gt;       super(CheckFileUpload, self).setup_method(method)
+
+scripts/FileUpload.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;&gt;
+
+    def setup_method(self, method):
+        &quot;&quot;&quot;
+            Parent class of all script classes used for custom asserts (usually &apos;soft&apos; asserts) and shared fixture setup
+            and teardown
+            &quot;&quot;&quot;
+        self.cf = saunter.ConfigWrapper.ConfigWrapper().config
+        self.config = self.cf
+    
+        self.current_method_name = method.__name__
+    
+        browser = self.cf.get(&quot;Selenium&quot;, &quot;browser&quot;)
+        if browser[0] == &quot;*&quot;:
+            browser = browser[1:]
+    
+        profile = None
+        if browser == &apos;firefox&apos;:
+            if self.cf.has_option(&quot;Selenium&quot;, &quot;profile-%s&quot; % sys.platform):
+                profile_path = os.path.join(self.cf.get(&quot;Saunter&quot;, &quot;base&quot;), &apos;support&apos;, &apos;profiles&apos;, self.cf.get(&quot;Selenium&quot;, &quot;profile-%s&quot; % sys.platform))
+            elif self.cf.has_option(&quot;Selenium&quot;, &quot;profile&quot;):
+                profile_path = os.path.join(self.cf.get(&quot;Saunter&quot;, &quot;base&quot;), &apos;support&apos;, &apos;profiles&apos;, self.cf.get(&quot;Selenium&quot;, &quot;profile&quot;))
+    
+            if os.path.isdir(profile_path):
+                profile = FirefoxProfile(profile_path)
+            else:
+                raise ProfileNotFound(&quot;Profile not found at %s&quot; % profile_path)
+    
+        if self.cf.getboolean(&quot;SauceLabs&quot;, &quot;ondemand&quot;):
+            desired_capabilities = {
+                &quot;platform&quot;: self.cf.get(&quot;SauceLabs&quot;, &quot;os&quot;),
+                &quot;browserName&quot;: self.cf.get(&quot;SauceLabs&quot;, &quot;browser&quot;),
+                &quot;version&quot;: self.cf.get(&quot;SauceLabs&quot;, &quot;browser_version&quot;),
+                &quot;name&quot;: method.__name__
+            }
+            if desired_capabilities[&quot;browserName&quot;][0] == &quot;*&quot;:
+                desired_capabilities[&quot;browserName&quot;] = desired_capabilities[&quot;browserName&quot;][1:]
+            if desired_capabilities[&quot;platform&quot;] in os_map:
+                desired_capabilities[&quot;platform&quot;] = os_map[desired_capabilities[&quot;platform&quot;]]
+    
+            if self.cf.has_option(&quot;SauceLabs&quot;, &quot;selenium_version&quot;):
+                desired_capabilities[&apos;selenium-version&apos;] = self.cf.get(&apos;SauceLabs&apos;, &apos;selenium_version&apos;)
+    
+            command_executor = &quot;http://%s:%s@ondemand.saucelabs.com:80/wd/hub&quot; % (self.cf.get(&quot;SauceLabs&quot;, &quot;username&quot;), self.cf.get(&quot;SauceLabs&quot;, &quot;key&quot;))
+        else:
+    
+            if browser == &quot;chrome&quot;:
+                os.environ[&quot;webdriver.chrome.driver&quot;] = self.cf.get(&quot;Selenium&quot;, &quot;chromedriver_path&quot;)
+            desired_capabilities = capabilities_map[browser]
+            if self.cf.has_section(&quot;Proxy&quot;) \
+                and self.cf.has_option(&quot;Proxy&quot;, &quot;proxy_url&quot;) \
+                and (self.cf.has_option(&quot;Proxy&quot;, &quot;browsermob&quot;) and self.cf.getboolean(&quot;Proxy&quot;, &quot;browsermob&quot;)):
+                from browsermobproxy import Client
+                self.client = Client(self.cf.get(&quot;Proxy&quot;, &quot;proxy_url&quot;))
+                self.client.add_to_webdriver_capabilities(desired_capabilities)
+            if self.cf.has_section(&quot;Grid&quot;):
+                if self.cf.getboolean(&quot;Grid&quot;, &quot;use_grid&quot;) and self.cf.get(&quot;Grid&quot;, &quot;type&quot;) == &quot;selenium&quot;:
+                    if self.cf.has_option(&quot;Grid&quot;, &quot;platform&quot;):
+                        desired_capabilities[&quot;platform&quot;] = self.cf.get(&quot;Grid&quot;, &quot;platform&quot;).upper()
+                    if self.cf.has_option(&quot;Grid&quot;, &quot;version&quot;):
+                        desired_capabilities[&quot;version&quot;] = str(self.cf.get(&quot;Grid&quot;, &quot;browser_version&quot;))
+    
+            command_executor = &quot;http://%s:%s/wd/hub&quot; % (self.cf.get(&quot;Selenium&quot;, &quot;server_host&quot;), self.cf.get(&quot;Selenium&quot;, &quot;server_port&quot;))
+    
+&gt;       self.driver = WebDriver(desired_capabilities = desired_capabilities, command_executor = command_executor, browser_profile=profile)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101ae2290&gt;
+kwargs = {&apos;browser_profile&apos;: &lt;selenium.webdriver.firefox.firefox_profile.FirefoxProfile object at 0x101ae25d0&gt;, &apos;command_execut...fQrTQB3ZWJhcHBzL3dlYmFwcHMuanNvblBLBQYAAAAAUgBSAEQWAAAqLE0AAAA=\n&apos;, &apos;javascriptEnabled&apos;: True, &apos;platform&apos;: &apos;ANY&apos;, ...}}
+
+&gt;   ???
+
+/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/tailored/webdriver.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101ae2290&gt;
+kwargs = {&apos;browser_profile&apos;: &lt;selenium.webdriver.firefox.firefox_profile.FirefoxProfile object at 0x101ae25d0&gt;, &apos;command_execut...fQrTQB3ZWJhcHBzL3dlYmFwcHMuanNvblBLBQYAAAAAUgBSAEQWAAAqLE0AAAA=\n&apos;, &apos;javascriptEnabled&apos;: True, &apos;platform&apos;: &apos;ANY&apos;, ...}}
+
+    def __init__(self, **kwargs):
+&gt;       super(SaunterWebDriver, self).__init__(**kwargs)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/SaunterWebDriver.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101ae2290&gt;
+command_executor = &apos;http://localhost:4444/wd/hub&apos;
+desired_capabilities = {&apos;browserName&apos;: &apos;firefox&apos;, &apos;firefox_profile&apos;: &apos;UEsDBBQAAAAIANJdoUK379yDAwAAAAEAAAANAAAAX0NBQ0hFX0NMRUFOXzMEAFBLAwQUAAA...gfQrTQB3ZWJhcHBzL3dlYmFwcHMuanNvblBLBQYAAAAAUgBSAEQWAAAqLE0AAAA=\n&apos;, &apos;javascriptEnabled&apos;: True, &apos;platform&apos;: &apos;ANY&apos;, ...}
+browser_profile = &lt;selenium.webdriver.firefox.firefox_profile.FirefoxProfile object at 0x101ae25d0&gt;
+proxy = None
+
+    def __init__(self, command_executor=&apos;http://127.0.0.1:4444/wd/hub&apos;,
+        desired_capabilities=None, browser_profile=None, proxy=None):
+        &quot;&quot;&quot;
+            Create a new driver that will issue commands using the wire protocol.
+    
+            :Args:
+             - command_executor - Either a command.CommandExecutor object or a string that specifies the URL of a remote server to send commands to.
+             - desired_capabilities - Dictionary holding predefined values for starting a browser
+             - browser_profile - A selenium.webdriver.firefox.firefox_profile.FirefoxProfile object.  Only used if Firefox is requested.
+            &quot;&quot;&quot;
+        if desired_capabilities is None:
+            raise WebDriverException(&quot;Desired Capabilities can&apos;t be None&quot;)
+        if not isinstance(desired_capabilities, dict):
+            raise WebDriverException(&quot;Desired Capabilities must be a dictionary&quot;)
+        if proxy is not None:
+            proxy.add_to_capabilities(desired_capabilities)
+        self.command_executor = command_executor
+        if type(self.command_executor) is bytes or type(self.command_executor) is str:
+            self.command_executor = RemoteConnection(command_executor)
+        self._is_remote = True
+        self.session_id = None
+        self.capabilities = {}
+        self.error_handler = ErrorHandler()
+        self.start_client()
+&gt;       self.start_session(desired_capabilities, browser_profile)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101ae2290&gt;
+desired_capabilities = {&apos;browserName&apos;: &apos;firefox&apos;, &apos;firefox_profile&apos;: &apos;UEsDBBQAAAAIANJdoUK379yDAwAAAAEAAAANAAAAX0NBQ0hFX0NMRUFOXzMEAFBLAwQUAAA...gfQrTQB3ZWJhcHBzL3dlYmFwcHMuanNvblBLBQYAAAAAUgBSAEQWAAAqLE0AAAA=\n&apos;, &apos;javascriptEnabled&apos;: True, &apos;platform&apos;: &apos;ANY&apos;, ...}
+browser_profile = &lt;selenium.webdriver.firefox.firefox_profile.FirefoxProfile object at 0x101ae25d0&gt;
+
+    def start_session(self, desired_capabilities, browser_profile=None):
+        &quot;&quot;&quot;
+            Creates a new session with the desired capabilities.
+    
+            :Args:
+             - browser_name - The name of the browser to request.
+             - version - Which browser version to request.
+             - platform - Which platform to request the browser on.
+             - javascript_enabled - Whether the new session should support JavaScript.
+             - browser_profile - A selenium.webdriver.firefox.firefox_profile.FirefoxProfile object. Only used if Firefox is requested.
+            &quot;&quot;&quot;
+        if browser_profile:
+            desired_capabilities[&apos;firefox_profile&apos;] = browser_profile.encoded
+        response = self.execute(Command.NEW_SESSION, {
+&gt;           &apos;desiredCapabilities&apos;: desired_capabilities,
+        })
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tailored.webdriver.WebDriver object at 0x101ae2290&gt;
+driver_command = &apos;newSession&apos;
+params = {&apos;desiredCapabilities&apos;: {&apos;browserName&apos;: &apos;firefox&apos;, &apos;firefox_profile&apos;: &apos;UEsDBBQAAAAIANJdoUK379yDAwAAAAEAAAANAAAAX0NBQ0h...YmFwcHMuanNvblBLBQYAAAAAUgBSAEQWAAAqLE0AAAA=\n&apos;, &apos;javascriptEnabled&apos;: True, &apos;platform&apos;: &apos;ANY&apos;, ...}, &apos;sessionId&apos;: None}
+
+    def execute(self, driver_command, params=None):
+        &quot;&quot;&quot;
+            Sends a command to be executed by a command.CommandExecutor.
+    
+            :Args:
+             - driver_command: The name of the command to execute as a string.
+             - params: A dictionary of named parameters to send with the command.
+    
+            :Returns:
+              The command&apos;s JSON response loaded into a dictionary object.
+            &quot;&quot;&quot;
+        if not params:
+            params = {&apos;sessionId&apos;: self.session_id}
+        elif &apos;sessionId&apos; not in params:
+            params[&apos;sessionId&apos;] = self.session_id
+    
+        params = self._wrap_value(params)
+        response = self.command_executor.execute(driver_command, params)
+        if response:
+&gt;           self.error_handler.check_response(response)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py:165: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x101ae21d0&gt;
+response = {&apos;status&apos;: 13, &apos;value&apos;: u&apos;&lt;html&gt;\n&lt;head&gt;\n&lt;title&gt;Error 500 Java heap space&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;...          \n                                                \n&lt;/body&gt;\n&lt;/html&gt;&apos;}
+
+    def check_response(self, response):
+        &quot;&quot;&quot;
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            &quot;&quot;&quot;
+        status = response[&apos;status&apos;]
+        if status == ErrorCode.SUCCESS:
+            return
+        exception_class = ErrorInResponseException
+        if status == ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status == ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status == ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status == ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status == ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status == ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status == ErrorCode.INVALID_SELECTOR \
+                or status == ErrorCode.INVALID_XPATH_SELECTOR \
+                or status == ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status == ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status == ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status == ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status == ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status == ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status == ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status == ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status == ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status == ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status == ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status == ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        value = response[&apos;value&apos;]
+        if type(value) is str:
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        message = &apos;&apos;
+        if &apos;message&apos; in value:
+            message = value[&apos;message&apos;]
+    
+        screen = None
+        if &apos;screen&apos; in value:
+            screen = value[&apos;screen&apos;]
+    
+        stacktrace = None
+        if &apos;stackTrace&apos; in value and value[&apos;stackTrace&apos;]:
+            zeroeth = &apos;&apos;
+            try:
+                zeroeth = value[&apos;stackTrace&apos;][0]
+            except:
+                pass
+            if &apos;methodName&apos; in zeroeth:
+                stacktrace = &quot;Method %s threw an error in %s&quot; % \
+                    (zeroeth[&apos;methodName&apos;],
+                    self._value_or_default(zeroeth, &apos;fileName&apos;, &apos;[No file name]&apos;))
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+&gt;       raise exception_class(message, screen, stacktrace)
+E       WebDriverException: Message: &apos;&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/errorhandler.py:152: WebDriverException</error></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_banana" time="0.00103211402893"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;&gt;
+
+    def teardown_method(self, method):
+&gt;       super(CheckFileUpload, self).teardown_method(method)
+
+scripts/FileUpload.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;&gt;
+
+    def teardown_method(self, method):
+        &quot;&quot;&quot;
+            Default teardown method for all scripts. If run through Sauce Labs OnDemand, the job name, status and tags
+            are updated. Also the video and server log are downloaded if so configured.
+            &quot;&quot;&quot;
+        if hasattr(self, &quot;config&quot;) and not self.config.getboolean(&quot;SauceLabs&quot;, &quot;ondemand&quot;):
+&gt;           self.take_named_screenshot(&quot;final&quot;)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101ae2510&gt;, name = &apos;final&apos;
+
+    def take_named_screenshot(self, name):
+        method_dir = self._screenshot_prep_dirs()
+    
+        image_path = os.path.join(method_dir, str(name) + &quot;.png&quot;)
+&gt;       self.driver.get_screenshot_as_file(image_path)
+E       AttributeError: &apos;CheckFileUpload&apos; object has no attribute &apos;driver&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:185: AttributeError</error></testcase></testsuite>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="2" failures="0" name="" skips="0" tests="0" time="0.529"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_banana" time="0.00154709815979"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;&gt;
+
+    def setup_method(self, method):
+&gt;       super(CheckFileUpload, self).setup_method(method)
+
+scripts/FileUpload.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;&gt;
+
+    def setup_method(self, method):
+        &quot;&quot;&quot;
+            Parent class of all script classes used for custom asserts (usually &apos;soft&apos; asserts) and shared fixture setup
+            and teardown
+            &quot;&quot;&quot;
+        self.cf = saunter.ConfigWrapper.ConfigWrapper().config
+        self.config = self.cf
+    
+        self.current_method_name = method.__name__
+    
+        browser = self.cf.get(&quot;Selenium&quot;, &quot;browser&quot;)
+        if browser[0] == &quot;*&quot;:
+            browser = browser[1:]
+    
+        profile = None
+        if browser == &apos;firefox&apos;:
+            if self.cf.has_option(&quot;Selenium&quot;, &quot;profile-%s&quot; % sys.platform):
+                profile_path = os.path.join(self.cf.get(&quot;Saunter&quot;, &quot;base&quot;), &apos;support&apos;, &apos;profiles&apos;, self.cf.get(&quot;Selenium&quot;, &quot;profile-%s&quot; % sys.platform))
+            elif self.cf.has_option(&quot;Selenium&quot;, &quot;profile&quot;):
+                profile_path = os.path.join(self.cf.get(&quot;Saunter&quot;, &quot;base&quot;), &apos;support&apos;, &apos;profiles&apos;, self.cf.get(&quot;Selenium&quot;, &quot;profile&quot;))
+    
+            if os.path.isdir(profile_path):
+                profile = FirefoxProfile(profile_path)
+            else:
+&gt;               raise ProfileNotFound(&quot;Profile not found at %s/support/profiles/%s&quot; % (self.cf.get(&quot;Saunter&quot;, &quot;base&quot;), self.cf.get(&quot;Selenium&quot;, &quot;profile&quot;)))
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;ConfigParser.SafeConfigParser instance at 0x10133dc20&gt;
+section = &apos;Selenium&apos;, option = &apos;profile&apos;, raw = False, vars = None
+
+    def get(self, section, option, raw=False, vars=None):
+        &quot;&quot;&quot;Get an option value for a given section.
+    
+            If `vars&apos; is provided, it must be a dictionary. The option is looked up
+            in `vars&apos; (if provided), `section&apos;, and in `defaults&apos; in that order.
+    
+            All % interpolations are expanded in the return values, unless the
+            optional argument `raw&apos; is true. Values for interpolation keys are
+            looked up in the same manner as the option.
+    
+            The section DEFAULT is special.
+            &quot;&quot;&quot;
+        sectiondict = {}
+        try:
+            sectiondict = self._sections[section]
+        except KeyError:
+            if section != DEFAULTSECT:
+                raise NoSectionError(section)
+        # Update with the entry specific variables
+        vardict = {}
+        if vars:
+            for key, value in vars.items():
+                vardict[self.optionxform(key)] = value
+        d = _Chainmap(vardict, sectiondict, self._defaults)
+        option = self.optionxform(option)
+        try:
+            value = d[option]
+        except KeyError:
+&gt;           raise NoOptionError(option, section)
+E           NoOptionError: No option &apos;profile&apos; in section: &apos;Selenium&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/ConfigParser.py:610: NoOptionError</error></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_banana" time="0.00108885765076"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;&gt;
+
+    def teardown_method(self, method):
+&gt;       super(CheckFileUpload, self).teardown_method(method)
+
+scripts/FileUpload.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;
+method = &lt;bound method CheckFileUpload.test_banana of &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;&gt;
+
+    def teardown_method(self, method):
+        &quot;&quot;&quot;
+            Default teardown method for all scripts. If run through Sauce Labs OnDemand, the job name, status and tags
+            are updated. Also the video and server log are downloaded if so configured.
+            &quot;&quot;&quot;
+        if hasattr(self, &quot;config&quot;) and not self.config.getboolean(&quot;SauceLabs&quot;, &quot;ondemand&quot;):
+&gt;           self.take_named_screenshot(&quot;final&quot;)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101ae4510&gt;, name = &apos;final&apos;
+
+    def take_named_screenshot(self, name):
+        method_dir = self._screenshot_prep_dirs()
+    
+        image_path = os.path.join(method_dir, str(name) + &quot;.png&quot;)
+&gt;       self.driver.get_screenshot_as_file(image_path)
+E       AttributeError: &apos;CheckFileUpload&apos; object has no attribute &apos;driver&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:185: AttributeError</error></testcase></testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="pytest" skips="0" tests="0" time="5.694"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="4.98158693314"><error message="test setup failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/scripts/FileUpload.py&quot;, line 8, in setup_method
+    self.u = Upload(self.driver).open().wait_until_loaded()
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/upload.py&quot;, line 39, in open
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/po/webdriver/page.py&quot;, line 43, in __getattribute__
+    attr = object.__getattribute__(self, name)
+AttributeError: &apos;Upload&apos; object has no attribute &apos;config&apos;</error></testcase></testsuite>

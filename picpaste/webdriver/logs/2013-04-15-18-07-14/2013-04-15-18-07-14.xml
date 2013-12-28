@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="1" name="" skips="0" tests="1" time="25.628"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="16.8887541294"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/conftest.py&quot;, line 31, in pytest_runtest_call
+    item.parent.obj.take_named_screenshot(&apos;exception&apos;)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py&quot;, line 178, in take_named_screenshot
+    sys.stdout(&quot;[[ATTACHMENT|%s]]&quot; % image_path)
+TypeError: &apos;file&apos; object is not callable</failure></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.0790579319"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101af2c10&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101af2c10&gt;&gt;
+
+    def teardown_method(self, method):
+&gt;       super(type(self), self).teardown_method(method)
+
+scripts/FileUpload.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101af2c10&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101af2c10&gt;&gt;
+
+    def teardown_method(self, method):
+        &quot;&quot;&quot;
+            Default teardown method for all scripts. If run through Sauce Labs OnDemand, the job name, status and tags
+            are updated. Also the video and server log are downloaded if so configured.
+            &quot;&quot;&quot;
+        if hasattr(self, &quot;config&quot;) and not self.config.getboolean(&quot;SauceLabs&quot;, &quot;ondemand&quot;):
+&gt;           self.take_named_screenshot(&quot;final&quot;)
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101af2c10&gt;, name = &apos;final&apos;
+
+    def take_named_screenshot(self, name):
+        method_dir = self._screenshot_prep_dirs()
+    
+        image_path = os.path.join(method_dir, str(name) + &quot;.png&quot;)
+        self.driver.get_screenshot_as_file(image_path)
+    
+        if self.config.has_option(&quot;Saunter&quot;, &quot;jenkins&quot;):
+            if self.cf.getboolean(&quot;Saunter&quot;, &quot;jenkins&quot;):
+&gt;               sys.stdout(&quot;[[ATTACHMENT|%s]]&quot; % image_path)
+E               TypeError: &apos;file&apos; object is not callable
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:178: TypeError</error></testcase></testsuite>

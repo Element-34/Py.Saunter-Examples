@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="2" failures="0" name="" skips="0" tests="0" time="0.448"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.00912189483643"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101b0b790&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b0b790&gt;&gt;
+
+    def setup_method(self, method):
+&gt;       super(CheckFileUpload, self).setup_method(method)
+
+scripts/FileUpload.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101b0b790&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b0b790&gt;&gt;
+
+    def setup_method(self, method):
+        &quot;&quot;&quot;
+            Parent class of all script classes used for custom asserts (usually &apos;soft&apos; asserts) and shared fixture setup
+            and teardown
+            &quot;&quot;&quot;
+        self.cf = self.config = saunter.ConfigWrapper.ConfigWrapper()
+    
+        self.current_method_name = method.__name__
+    
+        print(self.cf)
+        browser = self.cf[&quot;browsers&quot;][self.cf[&quot;saunter&quot;][&quot;default_browser&quot;]]
+&gt;       if browser[&quot;type&quot;][0] == &quot;*&quot;:
+E       TypeError: list indices must be integers, not str
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:94: TypeError</error></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.000453233718872"><error message="test setup failure">__multicall__ = &lt;MultiCall 0 results, 0 meths, kwargs={&apos;item&apos;: &lt;Function &apos;test_local_upload&apos;&gt;, &apos;nextitem&apos;: None}&gt;
+item = &lt;Function &apos;test_local_upload&apos;&gt;
+
+    def pytest_runtest_teardown(__multicall__, item):
+        __multicall__.execute()
+    
+&gt;       if hasattr(item.parent.obj, &apos;config&apos;) and item.parent.obj.config.getboolean(&apos;SauceLabs&apos;, &apos;ondemand&apos;):
+E       AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;getboolean&apos;
+
+conftest.py:59: AttributeError</error></testcase></testsuite>

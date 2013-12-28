@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="pytest" skips="0" tests="1" time="7.275"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="3.18629980087"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/conftest.py&quot;, line 31, in pytest_runtest_call
+    item.parent.obj.take_named_screenshot(&apos;exception&apos;)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py&quot;, line 178, in take_named_screenshot
+    method_dir = self._screenshot_prep_dirs()
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/base.py&quot;, line 59, in _screenshot_prep_dirs
+    class_dir = os.path.join(os.path.join(self.config.get(&apos;Saunter&apos;, &apos;log_dir&apos;), self.__class__.__name__))
+AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;get&apos;</failure></testcase></testsuite>

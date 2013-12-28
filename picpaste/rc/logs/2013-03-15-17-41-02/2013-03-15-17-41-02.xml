@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="" skips="0" tests="1" time="11.081"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="1.30366110802"/></testsuite>

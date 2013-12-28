@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="pytest" skips="0" tests="1" time="9.834"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="5.24489498138"><failure message="test failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/scripts/FileUpload.py&quot;, line 17, in test_local_upload
+    preview = self.u.upload(&apos;english_muffin.jpg&apos;)
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/modules/pages/upload.py&quot;, line 60, in upload
+    p = Preview(self.driver).wait_until_loaded()
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/preview.py&quot;, line 16, in wait_until_loaded
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/support/wait.py&quot;, line 63, in until
+    value = method(self._driver)
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/modules/pages/preview.py&quot;, line 16, in &lt;lambda&gt;
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/SaunterWebDriver.py&quot;, line 32, in find_element_by_locator
+    return WebElement(self.find_element_by_css_selector(locator_value))
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py&quot;, line 365, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py&quot;, line 681, in find_element
+    {&apos;using&apos;: by, &apos;value&apos;: value})[&apos;value&apos;]
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py&quot;, line 164, in execute
+    self.error_handler.check_response(response)
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/selenium/webdriver/remote/errorhandler.py&quot;, line 164, in check_response
+    raise exception_class(message, screen, stacktrace)
+UnexpectedAlertPresentException: Message: u&quot;Modal dialog present: Please read and accept our rules first!\nBuild info: version: &apos;2.39.0&apos;, revision: &apos;ff23eac&apos;, time: &apos;2013-12-16 16:11:15&apos;\nSystem info: host: &apos;Adams-MacBook.local&apos;, ip: &apos;192.168.2.16&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.9.1&apos;, java.version: &apos;1.7.0_45&apos;\nSession ID: 1a0cfa0a-b53f-f54f-972b-5a4a83982145\nDriver info: org.openqa.selenium.firefox.FirefoxDriver\nCapabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, browserConnectionEnabled=true, webStorageEnabled=true, nativeEvents=false, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=25.0.1}]&quot; ; Screenshot: available via screen ; Stacktrace: 
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0 (NativeConstructorAccessorImpl.java:-2)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance (NativeConstructorAccessorImpl.java:57)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance (DelegatingConstructorAccessorImpl.java:45)
+    at java.lang.reflect.Constructor.newInstance (Constructor.java:526)
+    at org.openqa.selenium.remote.ErrorHandler.createThrowable (ErrorHandler.java:193)
+    at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException (ErrorHandler.java:174)
+    at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed (ErrorHandler.java:141)
+    at org.openqa.selenium.remote.RemoteWebDriver.execute (RemoteWebDriver.java:554)
+    at org.openqa.selenium.remote.RemoteWebDriver.findElement (RemoteWebDriver.java:307)
+    at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector (RemoteWebDriver.java:396)
+    at org.openqa.selenium.By$ByCssSelector.findElement (By.java:432)
+    at org.openqa.selenium.remote.RemoteWebDriver.findElement (RemoteWebDriver.java:299)
+    at sun.reflect.GeneratedMethodAccessor30.invoke (None:-1)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:606)
+    at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke (EventFiringWebDriver.java:101)
+    at com.sun.proxy.$Proxy2.findElement (None:-1)
+    at org.openqa.selenium.support.events.EventFiringWebDriver.findElement (EventFiringWebDriver.java:184)
+    at org.openqa.selenium.remote.server.handler.FindElement.call (FindElement.java:47)
+    at org.openqa.selenium.remote.server.handler.FindElement.call (FindElement.java:1)
+    at java.util.concurrent.FutureTask.run (FutureTask.java:262)
+    at org.openqa.selenium.remote.server.DefaultSession$1.run (DefaultSession.java:170)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1145)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:615)
+    at java.lang.Thread.run (Thread.java:744)</failure></testcase></testsuite>

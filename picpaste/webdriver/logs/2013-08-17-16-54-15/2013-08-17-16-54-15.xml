@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="2" failures="0" name="" skips="0" tests="0" time="0.436"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.000671148300171"><error message="test setup failure">self = &lt;FileUpload.CheckFileUpload object at 0x101b08790&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b08790&gt;&gt;
+
+    def setup_method(self, method):
+&gt;       super(CheckFileUpload, self).setup_method(method)
+
+scripts/FileUpload.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;FileUpload.CheckFileUpload object at 0x101b08790&gt;
+method = &lt;bound method CheckFileUpload.test_local_upload of &lt;FileUpload.CheckFileUpload object at 0x101b08790&gt;&gt;
+
+    def setup_method(self, method):
+        &quot;&quot;&quot;
+            Parent class of all script classes used for custom asserts (usually &apos;soft&apos; asserts) and shared fixture setup
+            and teardown
+            &quot;&quot;&quot;
+        self.cf = self.config = saunter.ConfigWrapper.ConfigWrapper()
+    
+        self.current_method_name = method.__name__
+    
+        browser = self.cf[&quot;browsers&quot;][self.cf[&quot;saunter&quot;][&quot;default_browser&quot;]]
+        if browser[&quot;type&quot;][0] == &quot;*&quot;:
+            browser = browser[&quot;type&quot;] = browser[&quot;type&quot;][1:]
+    
+    
+    
+        profile = None
+        if browser[&quot;type&quot;] == &apos;firefox&apos;:
+            if browser[&quot;profiles&quot;][sys.platform]:
+                profile_path = os.path.join(self.cf[&quot;saunter&quot;][&quot;base&quot;], &apos;support&apos;, &apos;profiles&apos;, browser[&quot;profiles&quot;][sys.platform])
+            elif browser[&quot;profiles&quot;][&quot;profile&quot;]:
+                profile_path = os.path.join(self.cf[&quot;saunter&quot;][&quot;base&quot;], &apos;support&apos;, &apos;profiles&apos;, browser[&quot;profiles&quot;][&quot;profile&quot;])
+            else:
+                profile_path = None
+    
+            if profile_path:
+                if os.path.isdir(profile_path):
+                    profile = FirefoxProfile(profile_path)
+                else:
+                    raise ProfileNotFound(&quot;Profile not found at %s&quot; % profile_path)
+    
+        print(profile_path)
+    
+        if &quot;saucelabs&quot; in browser and broswer[&quot;sauceLabs&quot;][&quot;ondemand&quot;]:
+            desired_capabilities = {
+                &quot;platform&quot;: self.cf[&quot;sauceLabs&quot;][&quot;os&quot;],
+                &quot;browserName&quot;: self.cf[&quot;sauceLabs&quot;][&quot;browser&quot;],
+                &quot;version&quot;: self.cf.get(&quot;SauceLabs&quot;, &quot;browser_version&quot;),
+                &quot;name&quot;: method.__name__
+            }
+            if desired_capabilities[&quot;browserName&quot;][0] == &quot;*&quot;:
+                desired_capabilities[&quot;browserName&quot;] = desired_capabilities[&quot;browserName&quot;][1:]
+            if desired_capabilities[&quot;platform&quot;] in os_map:
+                desired_capabilities[&quot;platform&quot;] = os_map[desired_capabilities[&quot;platform&quot;]]
+    
+            if self.cf.has_option(&quot;SauceLabs&quot;, &quot;selenium_version&quot;):
+                desired_capabilities[&apos;selenium-version&apos;] = self.cf.get(&apos;SauceLabs&apos;, &apos;selenium_version&apos;)
+    
+            command_executor = &quot;http://%s:%s@ondemand.saucelabs.com:80/wd/hub&quot; % (self.cf.get(&quot;SauceLabs&quot;, &quot;username&quot;), self.cf.get(&quot;SauceLabs&quot;, &quot;key&quot;))
+        else:
+    
+            if browser == &quot;chrome&quot;:
+                os.environ[&quot;webdriver.chrome.driver&quot;] = self.cf.get(&quot;Selenium&quot;, &quot;chromedriver_path&quot;)
+&gt;           desired_capabilities = capabilities_map[browser]
+E           TypeError: unhashable type: &apos;dict&apos;
+
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:135: TypeError</error></testcase><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.000486850738525"><error message="test setup failure">__multicall__ = &lt;MultiCall 0 results, 0 meths, kwargs={&apos;item&apos;: &lt;Function &apos;test_local_upload&apos;&gt;, &apos;nextitem&apos;: None}&gt;
+item = &lt;Function &apos;test_local_upload&apos;&gt;
+
+    def pytest_runtest_teardown(__multicall__, item):
+        __multicall__.execute()
+    
+&gt;       if hasattr(item.parent.obj, &apos;config&apos;) and item.parent.obj.config.getboolean(&apos;SauceLabs&apos;, &apos;ondemand&apos;):
+E       AttributeError: &apos;ConfigWrapper&apos; object has no attribute &apos;getboolean&apos;
+
+conftest.py:59: AttributeError</error></testcase></testsuite>

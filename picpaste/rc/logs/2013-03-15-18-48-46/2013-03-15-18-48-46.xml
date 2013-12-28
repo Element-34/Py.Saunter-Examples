@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="" skips="0" tests="1" time="13.670"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="0.500285863876"><failure message="test failure">Traceback (most recent call last):
-  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/rc/conftest.py&quot;, line 32, in pytest_runtest_call
-    raise(e)
-Exception: java.lang.RuntimeException: java.io.FileNotFoundException: http://a.flyingmonkey.ca:7000/support/files/english_muffin.jpg</failure></testcase></testsuite>

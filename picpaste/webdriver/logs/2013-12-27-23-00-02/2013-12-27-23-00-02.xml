@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="pytest" skips="0" tests="0" time="5.360"><testcase classname="scripts.FileUpload.CheckFileUpload" name="test_local_upload" time="4.86310577393"><error message="test setup failure">Traceback (most recent call last):
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/scripts/FileUpload.py&quot;, line 8, in setup_method
+    self.u = Upload(self.driver).open().wait_until_loaded()
+  File &quot;/Users/adam/work/saunter/py.saunter-examples/picpaste/webdriver/modules/pages/upload.py&quot;, line 39, in open
+    self.driver.get(self.cf[&apos;Selenium&apos;][&apos;base_url&apos;])
+  File &quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/ConfigWrapper.py&quot;, line 40, in __getitem__
+    return self._data[key]
+KeyError: &apos;Selenium&apos;</error></testcase></testsuite>

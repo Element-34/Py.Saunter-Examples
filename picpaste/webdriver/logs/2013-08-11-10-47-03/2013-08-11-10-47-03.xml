@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="" skips="0" tests="0" time="0.092"><testcase classname="" name="scripts.FileUpload" time="0"><failure message="collection failure">scripts/FileUpload.py:1: in &lt;module&gt;
+&gt;   from saunter.testcase.webdriver import SaunterTestCase
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+&gt;           py.builtin.exec_(co, mod.__dict__)
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/testcase/webdriver.py:28: in &lt;module&gt;
+&gt;   if &quot;SauceLabs&quot; in config and config[&quot;SauceLabs&quot;][&quot;ondemand&quot;]:
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/saunter/ConfigWrapper.py:39: in __getitem__
+&gt;       return self._data[key]
+E       KeyError: 0</failure></testcase></testsuite>
